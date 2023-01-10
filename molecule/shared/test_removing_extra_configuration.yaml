@@ -1,0 +1,12 @@
+- hosts: all
+  become: yes
+  vars:
+    netflow_replicator_instances:
+    - name: baz
+      listen_port: 2056
+      receivers:
+        - 192.0.2.1:1111
+        - 192.0.2.2:2222
+      replicator: pmacct
+  roles:
+    - netflow-replicator

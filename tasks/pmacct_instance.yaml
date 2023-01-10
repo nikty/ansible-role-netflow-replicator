@@ -1,0 +1,18 @@
+- name: Create main configuration file
+  template:
+    src: nfacctd_replicator_main.conf.j2
+    dest: "{{ netflow_replicator_config_dir }}/{{ item.name }}.conf"
+
+- name: Create receivers configuration
+  template:
+    src: nfacctd_replicator_receivers.lst.j2
+    dest: "{{ netflow_replicator_config_dir }}/{{ item.name }}-receivers.lst"
+
+- name: Enable systemd service for {{ item.name }}
+  systemd:
+    daemon_reload: yes
+    name: "netflow-replicator-pmacct@{{ item.name }}"
+    state: started
+    enabled: yes
+
+  

@@ -1,0 +1,8 @@
+- name: Template systemd service file
+  template:
+    src: netflow-replicator-pmacct@.service.j2
+    dest: /etc/systemd/system/netflow-replicator-pmacct@.service
+
+- name: Configure replicator instances
+  include_tasks: pmacct_instance.yaml
+  loop: "{{ netflow_replicator_instances | selectattr('replicator', 'eq', 'pmacct') | list }}"

@@ -1,0 +1,10 @@
+nfacctd_port: {{ item.listen_port }}
+
+plugins: tee
+tee_receivers: {{ netflow_replicator_config_dir }}/{{ item.name }}-receivers.lst
+
+{% if item.pmacct_options is defined %}
+{% for k, v in item.pmacct_options.items() %}
+{{ k }}: {{ v }}
+{% endfor %}  
+{% endif %}

@@ -1,0 +1,3 @@
+- import_playbook: ../shared/test_creating_instances.yaml
+#- import_playbook: ../shared/test_removing_extra_configuration.yaml  
+

@@ -1,0 +1,29 @@
+---
+- name: Converge
+  hosts: all
+  become: yes
+  # vars:
+  #   netflow_replicator_instances:
+  #   - name: foo
+  #     listen_port: 2055
+  #     receivers:
+  #       - 192.0.2.1:1111
+  #       - 192.0.2.2:2222
+  #     replicator: pmacct
+
+  #     pmacct_options:
+  #       plugin_buffer_size: 102400
+  #       plugin_pipe_size: 10240000
+  #       nfacctd_pipe_size: 10240000
+  #       tee_pipe_size: 10240000
+  #   - name: bar
+  #     listen_port: 2056
+  #     receivers:
+  #       - 192.0.2.1:1111
+  #       - 192.0.2.2:2222
+  #     replicator: pmacct
+
+  tasks:
+    - name: "Include netflow-replicator"
+      include_role:
+        name: "netflow-replicator"

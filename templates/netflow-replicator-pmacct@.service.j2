@@ -1,0 +1,10 @@
+[Unit]
+Description=netflow replication daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/nfacctd -f "{{ netflow_replicator_config_dir }}/%i.conf"
+
+[Install]
+WantedBy=multi-user.target

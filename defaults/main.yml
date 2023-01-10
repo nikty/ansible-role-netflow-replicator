@@ -1,0 +1,18 @@
+---
+# defaults file for netflow-replicator
+
+netflow_replicator_instances: []
+# netflow_replicator_instances:
+#   - name: foo
+#     listen_port: 2055
+#     receivers:
+#       - host1:port1
+#       - host2:port2
+#     replicator: pmacct
+
+#     pmacct_options:
+#       plugin_buffer_size: 102400
+#       plugin_pipe_size: 10240000
+#       nfacctd_pipe_size: 10240000
+#       tee_pipe_size: 10240000
+      

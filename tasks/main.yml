@@ -1,0 +1,16 @@
+---
+# tasks file for netflow-replicator
+
+- name: Create directory for persistent configuration
+  file:
+    path: "{{ netflow_replicator_config_dir }}"
+    state: directory
+
+- name: Install pmacct
+  package:
+    name:
+      - pmacct
+
+- name: Configure pmacct replicator
+  include_tasks: pmacct.yaml
+  when: netflow_replicator_instances | selectattr('replicator', 'eq', 'pmacct') | list

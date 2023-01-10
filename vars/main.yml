@@ -1,0 +1,6 @@
+---
+# vars file for netflow-replicator
+
+netflow_replicator_rolebase_dir: /opt/netflow-replicator
+netflow_replicator_config_dir: "{{ netflow_replicator_rolebase_dir }}/config"
+
